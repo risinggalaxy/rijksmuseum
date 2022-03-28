@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		733BB90A27F1F44D0004E54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB90927F1F44D0004E54D /* AppDelegate.swift */; };
 		733BB90C27F1F44D0004E54D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB90B27F1F44D0004E54D /* SceneDelegate.swift */; };
-		733BB90E27F1F44D0004E54D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB90D27F1F44D0004E54D /* ViewController.swift */; };
 		733BB91327F1F44F0004E54D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733BB91227F1F44F0004E54D /* Assets.xcassets */; };
 		733BB91627F1F44F0004E54D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733BB91427F1F44F0004E54D /* LaunchScreen.storyboard */; };
-		733BB92127F1F44F0004E54D /* RijksmuseumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB92027F1F44F0004E54D /* RijksmuseumTests.swift */; };
-		733BB92B27F1F44F0004E54D /* RijksmuseumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB92A27F1F44F0004E54D /* RijksmuseumUITests.swift */; };
-		733BB92D27F1F44F0004E54D /* RijksmuseumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB92C27F1F44F0004E54D /* RijksmuseumUITestsLaunchTests.swift */; };
+		73A125E027F1F90A00B22EEB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125DF27F1F90A00B22EEB /* HomeView.swift */; };
+		73A125E227F1F91300B22EEB /* HomeViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E127F1F91300B22EEB /* HomeViewInterface.swift */; };
+		73A125E427F1F91E00B22EEB /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E327F1F91E00B22EEB /* HomeInteractor.swift */; };
+		73A125E627F1F92800B22EEB /* HomeInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E527F1F92800B22EEB /* HomeInteractorInterface.swift */; };
+		73A125E827F1F93300B22EEB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E727F1F93300B22EEB /* HomePresenter.swift */; };
+		73A125EA27F1F93A00B22EEB /* HomePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E927F1F93A00B22EEB /* HomePresenterInterface.swift */; };
+		73A125EC27F1F94800B22EEB /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125EB27F1F94800B22EEB /* HomeWireframe.swift */; };
+		73A125EE27F1F95000B22EEB /* HomeWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125ED27F1F95000B22EEB /* HomeWireframeInterface.swift */; };
+		73A125F027F1F95E00B22EEB /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125EF27F1F95E00B22EEB /* DetailsView.swift */; };
+		73A125F227F1F96900B22EEB /* DetailsViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125F127F1F96900B22EEB /* DetailsViewInterface.swift */; };
+		73A125F427F1F97500B22EEB /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125F327F1F97500B22EEB /* DetailsInteractor.swift */; };
+		73A125F627F1F97E00B22EEB /* DetailsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125F527F1F97E00B22EEB /* DetailsInteractorInterface.swift */; };
+		73A125F827F1F98D00B22EEB /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125F727F1F98D00B22EEB /* DetailsPresenter.swift */; };
+		73A125FA27F1F99500B22EEB /* DetailsPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125F927F1F99500B22EEB /* DetailsPresenterInterface.swift */; };
+		73A125FC27F1F9A300B22EEB /* DetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125FB27F1F9A300B22EEB /* DetailsWireframe.swift */; };
+		73A125FE27F1F9B000B22EEB /* DetailsWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125FD27F1F9B000B22EEB /* DetailsWireframeInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,15 +50,27 @@
 		733BB90627F1F44D0004E54D /* Rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		733BB90927F1F44D0004E54D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733BB90B27F1F44D0004E54D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		733BB90D27F1F44D0004E54D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		733BB91227F1F44F0004E54D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		733BB91527F1F44F0004E54D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733BB91727F1F44F0004E54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		733BB91C27F1F44F0004E54D /* RijksmuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksmuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		733BB92027F1F44F0004E54D /* RijksmuseumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksmuseumTests.swift; sourceTree = "<group>"; };
 		733BB92627F1F44F0004E54D /* RijksmuseumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksmuseumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		733BB92A27F1F44F0004E54D /* RijksmuseumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksmuseumUITests.swift; sourceTree = "<group>"; };
-		733BB92C27F1F44F0004E54D /* RijksmuseumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksmuseumUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		73A125DF27F1F90A00B22EEB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		73A125E127F1F91300B22EEB /* HomeViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewInterface.swift; sourceTree = "<group>"; };
+		73A125E327F1F91E00B22EEB /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		73A125E527F1F92800B22EEB /* HomeInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorInterface.swift; sourceTree = "<group>"; };
+		73A125E727F1F93300B22EEB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		73A125E927F1F93A00B22EEB /* HomePresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterInterface.swift; sourceTree = "<group>"; };
+		73A125EB27F1F94800B22EEB /* HomeWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
+		73A125ED27F1F95000B22EEB /* HomeWireframeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireframeInterface.swift; sourceTree = "<group>"; };
+		73A125EF27F1F95E00B22EEB /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		73A125F127F1F96900B22EEB /* DetailsViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewInterface.swift; sourceTree = "<group>"; };
+		73A125F327F1F97500B22EEB /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		73A125F527F1F97E00B22EEB /* DetailsInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractorInterface.swift; sourceTree = "<group>"; };
+		73A125F727F1F98D00B22EEB /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		73A125F927F1F99500B22EEB /* DetailsPresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenterInterface.swift; sourceTree = "<group>"; };
+		73A125FB27F1F9A300B22EEB /* DetailsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWireframe.swift; sourceTree = "<group>"; };
+		73A125FD27F1F9B000B22EEB /* DetailsWireframeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWireframeInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +121,12 @@
 		733BB90827F1F44D0004E54D /* Rijksmuseum */ = {
 			isa = PBXGroup;
 			children = (
-				733BB90927F1F44D0004E54D /* AppDelegate.swift */,
-				733BB90B27F1F44D0004E54D /* SceneDelegate.swift */,
-				733BB90D27F1F44D0004E54D /* ViewController.swift */,
-				733BB91227F1F44F0004E54D /* Assets.xcassets */,
-				733BB91427F1F44F0004E54D /* LaunchScreen.storyboard */,
+				73A125FF27F1FF5A00B22EEB /* Models */,
+				73A125DE27F1F84000B22EEB /* Services-Utilities */,
+				73A125DD27F1F83900B22EEB /* Networking */,
+				73A125CF27F1F7AB00B22EEB /* Home */,
+				73A125D027F1F7B300B22EEB /* Details */,
+				73A125CE27F1F67000B22EEB /* Application */,
 				733BB91727F1F44F0004E54D /* Info.plist */,
 			);
 			path = Rijksmuseum;
@@ -110,7 +135,11 @@
 		733BB91F27F1F44F0004E54D /* RijksmuseumTests */ = {
 			isa = PBXGroup;
 			children = (
-				733BB92027F1F44F0004E54D /* RijksmuseumTests.swift */,
+				73A1260027F1FF6100B22EEB /* ModelTest */,
+				73A125DB27F1F82700B22EEB /* HomeTest */,
+				73A125DC27F1F82F00B22EEB /* DetailsTests */,
+				73A125DA27F1F81B00B22EEB /* Mock-Dummies-Stubs */,
+				73A125D927F1F81200B22EEB /* Ntworking Test */,
 			);
 			path = RijksmuseumTests;
 			sourceTree = "<group>";
@@ -118,10 +147,169 @@
 		733BB92927F1F44F0004E54D /* RijksmuseumUITests */ = {
 			isa = PBXGroup;
 			children = (
-				733BB92A27F1F44F0004E54D /* RijksmuseumUITests.swift */,
-				733BB92C27F1F44F0004E54D /* RijksmuseumUITestsLaunchTests.swift */,
 			);
 			path = RijksmuseumUITests;
+			sourceTree = "<group>";
+		};
+		73A125CE27F1F67000B22EEB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				733BB90927F1F44D0004E54D /* AppDelegate.swift */,
+				733BB90B27F1F44D0004E54D /* SceneDelegate.swift */,
+				733BB91227F1F44F0004E54D /* Assets.xcassets */,
+				733BB91427F1F44F0004E54D /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		73A125CF27F1F7AB00B22EEB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				73A125D127F1F7C200B22EEB /* View */,
+				73A125D327F1F7CF00B22EEB /* Interactor */,
+				73A125D227F1F7C800B22EEB /* Presenter */,
+				73A125D427F1F7D800B22EEB /* WireFrame */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		73A125D027F1F7B300B22EEB /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				73A125D827F1F7F000B22EEB /* View */,
+				73A125D727F1F7EE00B22EEB /* Interactor */,
+				73A125D627F1F7EC00B22EEB /* Presenter */,
+				73A125D527F1F7E900B22EEB /* WireFrame */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		73A125D127F1F7C200B22EEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73A125DF27F1F90A00B22EEB /* HomeView.swift */,
+				73A125E127F1F91300B22EEB /* HomeViewInterface.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73A125D227F1F7C800B22EEB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				73A125E727F1F93300B22EEB /* HomePresenter.swift */,
+				73A125E927F1F93A00B22EEB /* HomePresenterInterface.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		73A125D327F1F7CF00B22EEB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				73A125E327F1F91E00B22EEB /* HomeInteractor.swift */,
+				73A125E527F1F92800B22EEB /* HomeInteractorInterface.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		73A125D427F1F7D800B22EEB /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				73A125EB27F1F94800B22EEB /* HomeWireframe.swift */,
+				73A125ED27F1F95000B22EEB /* HomeWireframeInterface.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		73A125D527F1F7E900B22EEB /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				73A125FB27F1F9A300B22EEB /* DetailsWireframe.swift */,
+				73A125FD27F1F9B000B22EEB /* DetailsWireframeInterface.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		73A125D627F1F7EC00B22EEB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				73A125F727F1F98D00B22EEB /* DetailsPresenter.swift */,
+				73A125F927F1F99500B22EEB /* DetailsPresenterInterface.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		73A125D727F1F7EE00B22EEB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				73A125F327F1F97500B22EEB /* DetailsInteractor.swift */,
+				73A125F527F1F97E00B22EEB /* DetailsInteractorInterface.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		73A125D827F1F7F000B22EEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73A125EF27F1F95E00B22EEB /* DetailsView.swift */,
+				73A125F127F1F96900B22EEB /* DetailsViewInterface.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73A125D927F1F81200B22EEB /* Ntworking Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Ntworking Test";
+			sourceTree = "<group>";
+		};
+		73A125DA27F1F81B00B22EEB /* Mock-Dummies-Stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Mock-Dummies-Stubs";
+			sourceTree = "<group>";
+		};
+		73A125DB27F1F82700B22EEB /* HomeTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeTest;
+			sourceTree = "<group>";
+		};
+		73A125DC27F1F82F00B22EEB /* DetailsTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailsTests;
+			sourceTree = "<group>";
+		};
+		73A125DD27F1F83900B22EEB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		73A125DE27F1F84000B22EEB /* Services-Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Services-Utilities";
+			sourceTree = "<group>";
+		};
+		73A125FF27F1FF5A00B22EEB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		73A1260027F1FF6100B22EEB /* ModelTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +442,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				733BB90E27F1F44D0004E54D /* ViewController.swift in Sources */,
+				73A125E827F1F93300B22EEB /* HomePresenter.swift in Sources */,
+				73A125EA27F1F93A00B22EEB /* HomePresenterInterface.swift in Sources */,
+				73A125FC27F1F9A300B22EEB /* DetailsWireframe.swift in Sources */,
+				73A125F827F1F98D00B22EEB /* DetailsPresenter.swift in Sources */,
+				73A125E027F1F90A00B22EEB /* HomeView.swift in Sources */,
+				73A125E627F1F92800B22EEB /* HomeInteractorInterface.swift in Sources */,
 				733BB90A27F1F44D0004E54D /* AppDelegate.swift in Sources */,
+				73A125EC27F1F94800B22EEB /* HomeWireframe.swift in Sources */,
+				73A125F627F1F97E00B22EEB /* DetailsInteractorInterface.swift in Sources */,
+				73A125FE27F1F9B000B22EEB /* DetailsWireframeInterface.swift in Sources */,
+				73A125F027F1F95E00B22EEB /* DetailsView.swift in Sources */,
+				73A125FA27F1F99500B22EEB /* DetailsPresenterInterface.swift in Sources */,
+				73A125F227F1F96900B22EEB /* DetailsViewInterface.swift in Sources */,
+				73A125F427F1F97500B22EEB /* DetailsInteractor.swift in Sources */,
 				733BB90C27F1F44D0004E54D /* SceneDelegate.swift in Sources */,
+				73A125E427F1F91E00B22EEB /* HomeInteractor.swift in Sources */,
+				73A125E227F1F91300B22EEB /* HomeViewInterface.swift in Sources */,
+				73A125EE27F1F95000B22EEB /* HomeWireframeInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				733BB92127F1F44F0004E54D /* RijksmuseumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +474,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				733BB92D27F1F44F0004E54D /* RijksmuseumUITestsLaunchTests.swift in Sources */,
-				733BB92B27F1F44F0004E54D /* RijksmuseumUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +632,6 @@
 				INFOPLIST_FILE = Rijksmuseum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -461,7 +660,6 @@
 				INFOPLIST_FILE = Rijksmuseum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
