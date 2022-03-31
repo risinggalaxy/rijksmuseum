@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol DetailViewInterface {
-    var presenter: DetailPresenterInterface? { get set }
+protocol DetailsViewInterface {
+    var presenter: DetailsPresenterInterface? { get set }
 }

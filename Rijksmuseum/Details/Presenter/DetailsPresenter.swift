@@ -7,8 +7,8 @@
 
 import UIKit
 
-class DetailPresenter: DetailPresenterInterface {
-    var view: DetailViewInterface?
-    var interactor: DetailInteractorInterface?
-    var wireframe: DetailWireframeInterface?
+class DetailsPresenter: DetailsPresenterInterface {
+    var view: DetailsViewInterface?
+    var interactor: DetailsInteractorInterface?
+    var wireframe: DetailsWireframeInterface?
 }

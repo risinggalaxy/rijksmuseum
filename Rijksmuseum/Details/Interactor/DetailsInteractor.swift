@@ -7,6 +7,6 @@
 
 import UIKit
 
-class DetailInteractor: DetailInteractorInterface {
-    var presenter: DetailPresenterInterface?
+class DetailsInteractor: DetailsInteractorInterface {
+    var presenter: DetailsPresenterInterface?
 }

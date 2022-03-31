@@ -7,13 +7,13 @@
 
 import UIKit
 
-class DetailWireframe: DetailWireframeInterface {
+class DetailsWireframe: DetailsWireframeInterface {
     
     static func makeDetailsView() -> VIEW {
-        let view = DetailView()
-        let interactor = DetailInteractor()
-        let presenter = DetailPresenter()
-        let wireframe = DetailWireframe()
+        let view = DetailsView()
+        let interactor = DetailsInteractor()
+        let presenter = DetailsPresenter()
+        let wireframe = DetailsWireframe()
         view.presenter = presenter
         interactor.presenter = presenter
         presenter.view = view

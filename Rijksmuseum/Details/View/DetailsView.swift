@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DetailView: UIViewController, DetailViewInterface {
+class DetailsView: UIViewController, DetailsViewInterface {
     
-    var presenter: DetailPresenterInterface?
+    var presenter: DetailsPresenterInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()

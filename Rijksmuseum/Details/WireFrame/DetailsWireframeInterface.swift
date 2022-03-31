@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol DetailWireframeInterface {
+protocol DetailsWireframeInterface {
     static func makeDetailsView() -> VIEW
 }

@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol DetailPresenterInterface {
-    var view: DetailViewInterface? { get set }
-    var interactor: DetailInteractorInterface? { get set }
-    var wireframe: DetailWireframeInterface? { get set }
+protocol DetailsPresenterInterface {
+    var view: DetailsViewInterface? { get set }
+    var interactor: DetailsInteractorInterface? { get set }
+    var wireframe: DetailsWireframeInterface? { get set }
 }
