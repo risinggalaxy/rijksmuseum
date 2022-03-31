@@ -18,3 +18,5 @@ struct APIURL {
 
 public var kProductPerPage: Int = 100
 public var kSearchLanguage: String = "en"
+
+

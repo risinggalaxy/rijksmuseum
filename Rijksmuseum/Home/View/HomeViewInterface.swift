@@ -10,5 +10,6 @@ import UIKit
 protocol HomeViewInterface {
     
     var presenter: HomePresenterInterface? { get set }
+    var collectionView: UICollectionView { get }
     
 }

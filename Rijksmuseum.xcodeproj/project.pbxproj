@@ -32,6 +32,8 @@
 		731CEC4727F5CA0100846B00 /* TestHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731CEC4627F5CA0100846B00 /* TestHomePresenter.swift */; };
 		731CEC4927F5CA0F00846B00 /* TestHomeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731CEC4827F5CA0F00846B00 /* TestHomeWireFrame.swift */; };
 		731CEC4B27F5CA2700846B00 /* TestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731CEC4A27F5CA2700846B00 /* TestModels.swift */; };
+		731CEC4E27F5EF1500846B00 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731CEC4D27F5EF1500846B00 /* CollectionViewCell.swift */; };
+		731CEC5027F5F22400846B00 /* AutoLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731CEC4F27F5F22400846B00 /* AutoLayoutHelper.swift */; };
 		732CFCBB27F30635004D889B /* ObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFCBA27F30635004D889B /* ObjectModels.swift */; };
 		732CFCBD27F30681004D889B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CFCBC27F30681004D889B /* Constants.swift */; };
 		733BB90A27F1F44D0004E54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BB90927F1F44D0004E54D /* AppDelegate.swift */; };
@@ -101,6 +103,8 @@
 		731CEC4627F5CA0100846B00 /* TestHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHomePresenter.swift; sourceTree = "<group>"; };
 		731CEC4827F5CA0F00846B00 /* TestHomeWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHomeWireFrame.swift; sourceTree = "<group>"; };
 		731CEC4A27F5CA2700846B00 /* TestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModels.swift; sourceTree = "<group>"; };
+		731CEC4D27F5EF1500846B00 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		731CEC4F27F5F22400846B00 /* AutoLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutHelper.swift; sourceTree = "<group>"; };
 		732CFCBA27F30635004D889B /* ObjectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectModels.swift; sourceTree = "<group>"; };
 		732CFCBC27F30681004D889B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		733BB90627F1F44D0004E54D /* Rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +189,14 @@
 			path = "Details-Mock-Stubs-Dummies";
 			sourceTree = "<group>";
 		};
+		731CEC4C27F5EF0500846B00 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				731CEC4D27F5EF1500846B00 /* CollectionViewCell.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		733BB8FD27F1F44D0004E54D = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 		733BB90827F1F44D0004E54D /* Rijksmuseum */ = {
 			isa = PBXGroup;
 			children = (
+				731CEC4C27F5EF0500846B00 /* UIComponents */,
 				73A125FF27F1FF5A00B22EEB /* Models */,
 				73A125DE27F1F84000B22EEB /* Services-Utilities */,
 				73A125DD27F1F83900B22EEB /* Networking */,
@@ -400,6 +413,7 @@
 			children = (
 				732CFCBC27F30681004D889B /* Constants.swift */,
 				731CEC1E27F5BD9A00846B00 /* ErrorHandler.swift */,
+				731CEC4F27F5F22400846B00 /* AutoLayoutHelper.swift */,
 			);
 			path = "Services-Utilities";
 			sourceTree = "<group>";
@@ -560,8 +574,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731CEC5027F5F22400846B00 /* AutoLayoutHelper.swift in Sources */,
 				73A125E827F1F93300B22EEB /* HomePresenter.swift in Sources */,
 				73A125EA27F1F93A00B22EEB /* HomePresenterInterface.swift in Sources */,
+				731CEC4E27F5EF1500846B00 /* CollectionViewCell.swift in Sources */,
 				73A125FC27F1F9A300B22EEB /* DetailsWireframe.swift in Sources */,
 				73A125F827F1F98D00B22EEB /* DetailsPresenter.swift in Sources */,
 				73A125E027F1F90A00B22EEB /* HomeView.swift in Sources */,
