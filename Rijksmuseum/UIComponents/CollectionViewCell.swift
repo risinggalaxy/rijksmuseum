@@ -14,6 +14,20 @@ class CollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    var moreInfoButtonClosure: (() -> ())?
+    
+    private var moreInfoButton: UIButton = {
+        let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 75, height: 75)))
+        button.layer.cornerRadius = button.frame.height / 2
+        button.clipsToBounds = true
+        button.backgroundColor = .blue
+        var configuration = UIImage.SymbolConfiguration(pointSize: 35, weight: .medium, scale: .large)
+        button.setImage(UIImage(systemName: "plus", withConfiguration: configuration), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(moreInfoAction), for: .touchUpInside)
+        return button
+    }()
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         return label
@@ -36,26 +50,40 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     private func addViews() {
-        self.insertSubview(imageView, at: .zero)
-        self.insertSubview(titleLabel, at: 1)
-        self.insertSubview(activityIndicator, at: 2)
+        self.clipsToBounds = true
+        self.addSubview(imageView)
+        self.addSubview(titleLabel)
+        self.addSubview(activityIndicator)
+        self.addSubview(moreInfoButton)
         imageView.autoLayoutHelper((anchor: self.leadingAnchor, constant: .zero),
                                    (anchor: self.trailingAnchor, constant: .zero),
                                    (anchor: self.topAnchor, constant: .zero),
-                                   (anchor: self.bottomAnchor, constant: .zero))
+                                   (anchor: self.bottomAnchor, constant: .zero), setSize: false)
         titleLabel.autoLayoutHelper((anchor: self.leadingAnchor, constant: 25),
                                     (anchor: self.trailingAnchor, constant: 25),
                                     nil,
-                                    (anchor: self.bottomAnchor, constant: 25))
-        activityIndicator.centerAlignObject(self)
+                                    (anchor: self.bottomAnchor, constant: -50), setSize: false)
+        
+        activityIndicator.centerAlignObject(imageView)
+        
+        moreInfoButton.autoLayoutHelper(nil,
+                                         (anchor: self.trailingAnchor, constant: -25),
+                                         nil,
+                                         (anchor: self.bottomAnchor, constant: -50 ), setSize: true)
     }
     
-    func configureCell(model: ObjectModel ) {
-        let image = UIImage(named: model.webImage.url)
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = image
-        titleLabel.text = model.title
+    @objc func moreInfoAction() {
+        moreInfoButtonClosure?()
     }
     
-    
+    var model: ObjectModel? {
+        didSet {
+            guard let model = model else { return }
+            let image = UIImage(named: model.webImage.url)
+            imageView.contentMode = .scaleAspectFill
+            imageView.image = image
+            titleLabel.text = model.title
+        }
+    }
+
 }
