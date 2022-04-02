@@ -11,4 +11,5 @@ typealias VIEW = UIViewController
 
 protocol HomeWireframeInterface {
     static func makeHomeView() -> VIEW
+    func presentDetailsView( with object: ObjectModel, on view: VIEW )
 }

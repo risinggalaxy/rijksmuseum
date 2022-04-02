@@ -8,7 +8,13 @@
 @testable import Rijksmuseum
 import UIKit
 
-class DetailsWireframe: DetailsWireframeInterface {
+class MockDetailsWireframe: DetailsWireframeInterface {
+    
+    static func makeDetailsView(with object: ObjectModel) -> VIEW {
+        let view = VIEW()
+        return view
+    }
+    
     static func makeDetailsView() -> VIEW {
         let view = VIEW()
         return view

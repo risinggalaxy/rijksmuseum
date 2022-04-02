@@ -13,60 +13,28 @@ class HomeView: UIViewController, HomeViewInterface {
     private static let screenSize = UIScreen.main.bounds
     private static let cellScale: CGFloat = 0.8
     private let cellIdentifier: String = "cell"
-    private let headerIdentifier: String = "header"
-    
-    var object: [ObjectModel] = [ObjectModel(id: "Test", objectNumber: "test", title: "Test Object One",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Two",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Three",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Four",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Five",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Six",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Seven",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage")),
-                                 ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Eight",
-                                             longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
-                                             webImage: WebImageModel(url: "webImage"),
-                                             headerImage: HeaderImageModel(url: "headerImage"))]
-    
+    let errorLabel: UILabel = {
+        let label = UILabel(frame: CGRect(origin: .zero, size: .zero))
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.textColor = .darkGray
+        label.textAlignment = .center
+        label.numberOfLines = .zero
+        label.isHidden = true
+        return label
+    }()
     var collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: screenSize,
                                               collectionViewLayout: collectionViewLayout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
         collectionViewLayout.scrollDirection = .horizontal
-//        let cellSize = CGSize(width: floor((screenSize.width * cellScale) + 50.0),
-//                              height: floor((screenSize.height / 1.2) * cellScale))
-//        let xInset = (screenSize.width - cellSize.width) / 2.0
-//        let yInset = (screenSize.height - cellSize.height) / 2.0
-//        collectionViewLayout.itemSize = cellSize
-//        collectionView.contentInset = UIEdgeInsets(top: .zero, left: xInset, bottom: .zero, right: xInset)
-//        collectionViewLayout.minimumLineSpacing = xInset
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
     
     override func viewWillLayoutSubviews() {
@@ -75,6 +43,20 @@ class HomeView: UIViewController, HomeViewInterface {
         setupCollectionView()
 
     }
+    
+    func moreInfoButtonAction(with object: ObjectModel) {
+        presenter?.presentDetailsView(with: object, on: self)
+    }
+    
+    func updateUISomethingWentWrong(with text: String) {
+        print(text)
+        collectionView.isHidden = true
+        view.addSubview(errorLabel)
+        errorLabel.text = text
+        errorLabel.isHidden = false
+        errorLabel.centerAlignObject(view)
+       
+    }
 
 }
 
@@ -82,8 +64,6 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 
     private func setupCollectionView() {
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-//        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-//                                withReuseIdentifier: headerIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -104,35 +84,30 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return object.count
+        if presenter?.numberOfArtObjects != nil {
+            return (presenter?.numberOfArtObjects)!
+        } else {
+            return .zero
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CollectionViewCell
-        cell.model = object[indexPath.row]
-        cell.moreInfoButtonClosure = {
-            print(self.object[indexPath.row].title)
+        if let object = presenter?.objectFor(indexPath.row) {
+            cell.model = object
+            cell.tag = indexPath.row
+            cell.isLoadingObject = true
+            cell.moreInfoButtonClosure = { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.moreInfoButtonAction(with: object)
+                }
+            }
         }
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.title = object[indexPath.row].title
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
-//        return header
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: view.frame.width, height: 150)
-//    }
 }

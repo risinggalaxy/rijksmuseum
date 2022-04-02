@@ -8,5 +8,5 @@
 import UIKit
 
 protocol DetailsWireframeInterface {
-    static func makeDetailsView() -> VIEW
+    static func makeDetailsView(with object: ObjectModel ) -> VIEW
 }

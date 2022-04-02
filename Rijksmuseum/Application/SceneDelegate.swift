@@ -16,11 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: uiWindow)
         window?.rootViewController = HomeWireframe.makeHomeView()
         window?.makeKeyAndVisible()
-        
-//        window?.rootViewController = NavigationFactory.factory(rootView: HomeWireframe.makeHomeView(),
-//                                                               showNavigationBar: true, largeTitle: true)
-//        window?.makeKeyAndVisible()
     }
 
 }
-

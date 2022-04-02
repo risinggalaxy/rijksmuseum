@@ -8,6 +8,12 @@
 @testable import Rijksmuseum
 import UIKit
 
-class MockDetailsInteractor: DetailsInteractor {
-    
+class MockDetailsInteractor: DetailsInteractorInterface {
+    var presenter: DetailsPresenterInterface?
+    var didPresentViewWithObject: Bool = false
+    var object: ObjectModel? {
+        didSet {
+            didPresentViewWithObject = true
+        }
+    }
 }

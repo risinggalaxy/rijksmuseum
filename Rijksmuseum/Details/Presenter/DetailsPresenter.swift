@@ -8,7 +8,13 @@
 import UIKit
 
 class DetailsPresenter: DetailsPresenterInterface {
+    
     var view: DetailsViewInterface?
     var interactor: DetailsInteractorInterface?
     var wireframe: DetailsWireframeInterface?
+
+    func updateDetailsView(with object: ObjectModel) {
+        view?.updateView(with: object)
+    }
+    
 }

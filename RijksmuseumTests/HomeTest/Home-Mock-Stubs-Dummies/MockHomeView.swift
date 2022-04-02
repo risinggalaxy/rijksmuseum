@@ -9,5 +9,17 @@
 import UIKit
 
 class MockHomeView: HomeViewInterface {
+
     var presenter: HomePresenterInterface?
+    var didReceiveButtonAction: Bool = false
+    var numbersButtonActionWasReceived: Int = 0
+    
+    func moreInfoButtonAction(with object: ObjectModel) {
+        didReceiveButtonAction = true
+        numbersButtonActionWasReceived += 1
+    }
+    
+    func updateUISomethingWentWrong(with text: String) {
+    }
+    
 }

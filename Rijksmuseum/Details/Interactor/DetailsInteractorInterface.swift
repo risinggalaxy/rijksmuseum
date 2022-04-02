@@ -9,4 +9,5 @@ import UIKit
 
 protocol DetailsInteractorInterface {
     var presenter: DetailsPresenterInterface? { get set }
+    var object: ObjectModel? { get set }
 }

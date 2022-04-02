@@ -11,4 +11,5 @@ protocol DetailsPresenterInterface {
     var view: DetailsViewInterface? { get set }
     var interactor: DetailsInteractorInterface? { get set }
     var wireframe: DetailsWireframeInterface? { get set }
+    func updateDetailsView(with object: ObjectModel)
 }

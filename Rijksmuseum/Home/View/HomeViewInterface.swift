@@ -10,5 +10,6 @@ import UIKit
 protocol HomeViewInterface {
     
     var presenter: HomePresenterInterface? { get set }
-    
+    func moreInfoButtonAction(with object: ObjectModel)
+    func updateUISomethingWentWrong( with text: String )
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsWireframe: DetailsWireframeInterface {
     
-    static func makeDetailsView() -> VIEW {
+    static func makeDetailsView(with object: ObjectModel ) -> VIEW {
         let view = DetailsView()
         let interactor = DetailsInteractor()
         let presenter = DetailsPresenter()
@@ -19,6 +19,7 @@ class DetailsWireframe: DetailsWireframeInterface {
         presenter.view = view
         presenter.interactor = interactor
         presenter.wireframe = wireframe
+        interactor.object = object
         return view
     }
     

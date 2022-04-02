@@ -9,9 +9,18 @@
 import UIKit
 
 class MockDetailsPresenter: DetailsPresenterInterface {
-    
+
     var interactor: DetailsInteractorInterface?
     var wireframe: DetailsWireframeInterface?
     var view: DetailsViewInterface?
+    var didReceiveUpdateFromInteractor: Bool = false
+    var numberOfTimesArtObjectWasReceivedFromInteractor: Int = 0
+    var artObject: ObjectModel?
+    
+    func updateDetailsView(with object: ObjectModel) {
+        didReceiveUpdateFromInteractor = true
+        numberOfTimesArtObjectWasReceivedFromInteractor += 1
+        artObject = object
+    }
     
 }

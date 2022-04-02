@@ -19,4 +19,38 @@ struct APIURL {
 public var kProductPerPage: Int = 100
 public var kSearchLanguage: String = "en"
 
+var dummyObjects: [ObjectModel] = [ObjectModel(id: "Test", objectNumber: "test", title: "Test Object One",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Two",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Three",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Four",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Five",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Six",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Seven",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage")),
+                             ObjectModel(id: "Test", objectNumber: "test", title: "Test Object Eight",
+                                         longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,
+                                         webImage: WebImageModel(url: "webImage"),
+                                         headerImage: HeaderImageModel(url: "headerImage"))]
 
+
+//var dummyObjects: [ObjectModel] = []

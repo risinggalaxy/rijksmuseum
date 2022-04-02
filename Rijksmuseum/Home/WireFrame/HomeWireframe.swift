@@ -20,8 +20,13 @@ class HomeWireframe: HomeWireframeInterface {
         presenter.view = view
         presenter.interactor = interactor
         presenter.wireframe = wireframe
+        interactor.artObject = dummyObjects
         
         return view
+    }
+    
+    func presentDetailsView(with object: ObjectModel, on view: VIEW) {
+        view.present(DetailsWireframe.makeDetailsView(with: object), animated: true, completion: nil)
     }
     
 }

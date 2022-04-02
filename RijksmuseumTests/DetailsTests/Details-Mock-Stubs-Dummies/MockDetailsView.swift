@@ -9,5 +9,15 @@
 import UIKit
 
 class MockDetailsView: DetailsViewInterface {
+    
     var presenter: DetailsPresenterInterface?
+    var artObject: ObjectModel?
+    var numberUpdateWasPushed: Int = .zero
+    var didReceiveUpdateFromPresenter: Bool = false
+    
+    func updateView(with object: ObjectModel) {
+        artObject = object
+        numberUpdateWasPushed += 1
+        didReceiveUpdateFromPresenter = true
+    }
 }

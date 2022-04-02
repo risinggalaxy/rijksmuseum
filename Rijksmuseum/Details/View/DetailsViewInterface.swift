@@ -9,4 +9,5 @@ import UIKit
 
 protocol DetailsViewInterface {
     var presenter: DetailsPresenterInterface? { get set }
+    func updateView(with object: ObjectModel)
 }
