@@ -9,10 +9,11 @@
 import UIKit
 
 class MockHomeInteractor: HomeInteractorInterface {
-
+    
+    var downloadService: DownloadService?
     var presenter: HomePresenterInterface?
     var didReturnObject: Bool = false
-    var artObject: [ObjectModel]?
+    var artObjects: [ObjectModel]?
     
     func objectFor( _ index: Int) -> ObjectModel {
         let object = dummyObjects[index]

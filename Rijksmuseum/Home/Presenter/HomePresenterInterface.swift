@@ -14,5 +14,5 @@ protocol HomePresenterInterface {
     func objectFor( _ index: Int ) -> ObjectModel
     func presentDetailsView(with object: ObjectModel, on view: VIEW)
     var numberOfArtObjects: Int? { get set }
-    func somethingWentWrong()
+    func somethingWentWrong( _ error: String)
 }

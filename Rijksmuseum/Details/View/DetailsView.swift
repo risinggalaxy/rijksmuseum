@@ -25,6 +25,8 @@ class DetailsView: UIViewController, DetailsViewInterface {
         tv.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 35, right: 10)
         tv.textColor = UIColor(named: "textColor")
         tv.text = nil
+        tv.isEditable = false
+        tv.isSelectable = true
         return tv
     }()
     

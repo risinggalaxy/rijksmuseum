@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeInteractorInterface {
     var presenter: HomePresenterInterface? { get set }
-    var artObject: [ObjectModel]? { get }
+    var artObjects: [ObjectModel]? { get }
+    var downloadService: DownloadService? { get set }
     func objectFor( _ index: Int ) -> ObjectModel
 }

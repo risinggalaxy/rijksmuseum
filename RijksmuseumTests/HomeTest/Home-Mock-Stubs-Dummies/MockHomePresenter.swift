@@ -32,7 +32,7 @@ class MockHomePresenter: HomePresenterInterface {
         numberReceivePresentDetailViewRequest += 1
     }
     
-    func somethingWentWrong() {
+    func somethingWentWrong( _ error: String) {
     }
     
 }

@@ -8,15 +8,23 @@
 import UIKit
 
 class HomePresenter: HomePresenterInterface {
+    
     var view: HomeViewInterface?
     var interactor: HomeInteractorInterface?
     var wireframe: HomeWireframeInterface?
     
-    var numberOfArtObjects: Int? 
+    var numberOfArtObjects: Int?  {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.view?.collectionView.reloadData()
+            }
+        }
+    }
     
     func objectFor( _ index: Int ) -> ObjectModel {
         guard let object = interactor?.objectFor(index) else {
-            somethingWentWrong()
+            somethingWentWrong("Was not able to find the right collection")
             return dummyObjects[0]
         }
         return object
@@ -26,8 +34,7 @@ class HomePresenter: HomePresenterInterface {
         wireframe?.presentDetailsView(with: object, on: view)
     }
     
-    func somethingWentWrong() {
-        print("Got your message")
-        view?.updateUISomethingWentWrong(with: ErrorHandler.failedRequest(description: "Something Went Wrong!").localizedDescription)
+    func somethingWentWrong( _ error: String) {
+        view?.updateUISomethingWentWrong(with: error)
     }
 }

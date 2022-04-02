@@ -49,7 +49,6 @@ class HomeView: UIViewController, HomeViewInterface {
     }
     
     func updateUISomethingWentWrong(with text: String) {
-        print(text)
         collectionView.isHidden = true
         view.addSubview(errorLabel)
         errorLabel.text = text
@@ -96,7 +95,7 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         if let object = presenter?.objectFor(indexPath.row) {
             cell.model = object
             cell.tag = indexPath.row
-            cell.isLoadingObject = true
+            cell.isLoadingObject = false
             cell.moreInfoButtonClosure = { [weak self] in
                 if let strongSelf = self {
                     strongSelf.moreInfoButtonAction(with: object)

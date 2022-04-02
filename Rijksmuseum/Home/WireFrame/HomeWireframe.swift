@@ -14,14 +14,13 @@ class HomeWireframe: HomeWireframeInterface {
         let interactor = HomeInteractor()
         let presenter = HomePresenter()
         let wireframe = HomeWireframe()
-        
+        let downloadService = DownloadService(urlString: APIURL.getURL())
         view.presenter = presenter
         interactor.presenter = presenter
         presenter.view = view
         presenter.interactor = interactor
         presenter.wireframe = wireframe
-        interactor.artObject = dummyObjects
-        
+        interactor.downloadService = downloadService
         return view
     }
     
