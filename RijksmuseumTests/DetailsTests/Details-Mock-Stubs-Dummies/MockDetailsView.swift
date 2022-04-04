@@ -14,10 +14,15 @@ class MockDetailsView: DetailsViewInterface {
     var artObject: ObjectModel?
     var numberUpdateWasPushed: Int = .zero
     var didReceiveUpdateFromPresenter: Bool = false
+    var headerImage: Data?
     
     func updateView(with object: ObjectModel) {
         artObject = object
         numberUpdateWasPushed += 1
         didReceiveUpdateFromPresenter = true
     }
+    
+    func displayErrorLabel(with error: String) {
+    }
+    
 }

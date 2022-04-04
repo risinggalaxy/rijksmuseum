@@ -22,7 +22,7 @@ class HomeView: UIViewController, HomeViewInterface {
         label.isHidden = true
         return label
     }()
-    var collectionView: UICollectionView = {
+    var collectionView: UICollectionView! = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: screenSize,
                                               collectionViewLayout: collectionViewLayout)
@@ -91,14 +91,12 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CollectionViewCell
+        cell.tag = indexPath.row
         if let object = presenter?.objectFor(indexPath.row) {
             cell.model = object
-            cell.tag = indexPath.row
-            cell.isLoadingObject = false
-            presenter?.imageForCell(with: object.webImage.url, completion: { (imageData) in
+            presenter?.imageForCell(with: object.webImage.url, name: object.id, and: .shared, completion: { (imageData) in
                 DispatchQueue.main.async {
                     cell.mainImage = imageData
-                    cell.isLoadingObject = false
                 }
             })
             cell.moreInfoButtonClosure = { [weak self] in

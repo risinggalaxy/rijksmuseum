@@ -9,7 +9,8 @@
 import UIKit
 
 class MockHomeView: HomeViewInterface {
-
+    
+    var collectionView: UICollectionView!
     var presenter: HomePresenterInterface?
     var didReceiveButtonAction: Bool = false
     var numbersButtonActionWasReceived: Int = 0
@@ -21,5 +22,6 @@ class MockHomeView: HomeViewInterface {
     
     func updateUISomethingWentWrong(with text: String) {
     }
+    
     
 }

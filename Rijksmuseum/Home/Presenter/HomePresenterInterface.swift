@@ -16,5 +16,5 @@ protocol HomePresenterInterface {
     func presentDetailsView(with object: ObjectModel, on view: VIEW)
     var numberOfArtObjects: Int? { get set }
     func somethingWentWrong( _ error: String)
-    func imageForCell(with url: String?, completion: @escaping (Data) -> Void )
+    func imageForCell(with url: String?, name: String,  and urlSession: URLSession, completion: @escaping (Data) -> Void )
 }

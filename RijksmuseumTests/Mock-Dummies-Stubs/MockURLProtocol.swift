@@ -10,7 +10,7 @@ import UIKit
 
 class MockURLProtocol: URLProtocol {
     
-    public static var stubJSONData: Data?
+    public static var stubData: Data?
     public static var error: ErrorHandler?
     
     override class func canInit(with request: URLRequest) -> Bool {
@@ -25,7 +25,7 @@ class MockURLProtocol: URLProtocol {
         if let err = MockURLProtocol.error {
             self.client?.urlProtocol(self, didFailWithError: err)
         } else {
-            self.client?.urlProtocol(self, didLoad: MockURLProtocol.stubJSONData ?? Data())
+            self.client?.urlProtocol(self, didLoad: MockURLProtocol.stubData ?? Data())
         }
         self.client?.urlProtocolDidFinishLoading(self)
     }

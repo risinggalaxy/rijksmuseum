@@ -33,9 +33,9 @@ class TestDetailsView: XCTestCase {
     }
     
     func testDetailsView_WhenReceivingArtObject_HeaderImageViewShouldContainImage() {
-        XCTAssertNil(sut.headerImage.image)
-        sut.updateView(with: dummyObjects[0])
-        XCTAssertNotNil(sut.headerImage.image)
+        XCTAssertNil(sut.headerImage)
+        sut.headerImage = Data()
+        XCTAssertNotNil(sut.headerImage)
     }
     
 }

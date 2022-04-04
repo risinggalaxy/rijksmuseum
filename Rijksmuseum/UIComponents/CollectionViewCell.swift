@@ -19,6 +19,7 @@ class CollectionViewCell: UICollectionViewCell {
         didSet {
             if let mainImageData = mainImage {
                 imageView.image = UIImage(data: mainImageData)
+                isLoadingObject = false
             }
         }
     }
@@ -83,6 +84,7 @@ class CollectionViewCell: UICollectionViewCell {
                                     (anchor: self.bottomAnchor, constant: -50), setSize: false)
         
         activityIndicator.centerAlignObject(imageView)
+        isLoadingObject = true
     }
     
     @objc func moreInfoAction() {
@@ -102,7 +104,6 @@ class CollectionViewCell: UICollectionViewCell {
                 activityIndicator.isHidden = newValue ? false : true
                 if newValue {
                     activityIndicator.startAnimating()
-                    titleLabel.text = "Loading".capitalized
                 } else {
                     activityIndicator.stopAnimating()
                 }

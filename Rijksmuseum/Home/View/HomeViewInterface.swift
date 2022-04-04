@@ -12,5 +12,5 @@ protocol HomeViewInterface {
     var presenter: HomePresenterInterface? { get set }
     func moreInfoButtonAction(with object: ObjectModel)
     func updateUISomethingWentWrong( with text: String )
-    var collectionView: UICollectionView { get }
+    var collectionView: UICollectionView! { get }
 }

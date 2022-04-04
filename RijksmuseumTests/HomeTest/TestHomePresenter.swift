@@ -50,4 +50,18 @@ class TestHomePresenter: XCTestCase {
         XCTAssertTrue(mockWireframe.didPresentDetailsViewWithObject)
     }
     
+    func testHomePresenter_ImageForCell_ShouldDownloadImageData() {
+        let expectation = XCTestExpectation(description: "Data Passed")
+        guard let imageData = UIImage(named: "webImage")?.pngData() else { return }
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        MockURLProtocol.stubData = imageData
+        let urlSession = URLSession(configuration: configuration)
+        sut.imageForCell(with: dummyObjects[0].webImage.url, and: urlSession) { receivedData in
+            XCTAssertEqual(receivedData, imageData)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 2.0)
+    }
 }

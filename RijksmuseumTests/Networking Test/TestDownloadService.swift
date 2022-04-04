@@ -22,7 +22,7 @@ class TestDownloadService: XCTestCase {
     
     override func tearDown() {
         sut = nil
-        MockURLProtocol.stubJSONData = nil
+        MockURLProtocol.stubData = nil
         MockURLProtocol.error = nil
         super.tearDown()
     }
@@ -42,7 +42,7 @@ class TestDownloadService: XCTestCase {
         let expectation = expectation(description: "Request Failed Downloading")
         let errorDescription = "The operation couldn’t be completed \n due to an error while download request"
         MockURLProtocol.error = ErrorHandler.failedRequest(description: errorDescription)
-        MockURLProtocol.stubJSONData = nil
+        MockURLProtocol.stubData = nil
         sut.downloader { (data, error) in
             XCTAssertNil(data)
             XCTAssertEqual(error, ErrorHandler.failedRequest(description: errorDescription))
@@ -55,7 +55,7 @@ class TestDownloadService: XCTestCase {
     func testDownloadServiceTest_WhenDataReceived_ShouldPassTest() {
         let expectation = expectation(description: "Data Was Received")
         guard let receivedData = mockJSON else { return }
-        MockURLProtocol.stubJSONData = receivedData
+        MockURLProtocol.stubData = receivedData
         sut.downloader { (data, error) in
             XCTAssertNotNil(data)
             XCTAssertNil(error)

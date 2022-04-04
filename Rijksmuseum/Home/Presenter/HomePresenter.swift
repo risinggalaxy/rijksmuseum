@@ -30,24 +30,33 @@ class HomePresenter: HomePresenterInterface {
         return object
     }
     
-    func imageForCell(with url: String?, completion: @escaping (Data) -> Void ) {
+    func imageForCell(with url: String?, name: String, and urlSession: URLSession, completion: @escaping (Data) -> Void ) {
         guard let url = url else {
             view?.updateUISomethingWentWrong(with: ErrorHandler.failedToLoadURL.localizedDescription)
             return
         }
-        downloadService = DownloadService(urlString: url)
-        downloadService?.downloader(completionHandler: {[weak self] (data, error) in
-            guard let strongSelf = self else { return }
-            if let error = error {
-                strongSelf.view?.updateUISomethingWentWrong(with: error.localizedDescription)
-            }
-            guard let imageData = data else {
-                strongSelf.view?.updateUISomethingWentWrong(with: ErrorHandler.failedDueToCorruptData.localizedDescription)
+        
+        if CacheService.imageExists(fileName: name, in: .cache).available {
+            guard let cachedImage = CacheService.imageExists(fileName: name, in: .cache).imageData else {
+                somethingWentWrong("Was not able to load image from cache")
                 return
             }
-            completion(imageData)
-        })
-
+            completion(cachedImage)
+        } else {
+            downloadService = DownloadService(urlSession: urlSession, urlString: url)
+            downloadService?.downloader(completionHandler: {[weak self] (data, error) in
+                guard let strongSelf = self else { return }
+                if let error = error {
+                    strongSelf.view?.updateUISomethingWentWrong(with: error.localizedDescription)
+                }
+                guard let imageData = data else {
+                    strongSelf.view?.updateUISomethingWentWrong(with: ErrorHandler.failedDueToCorruptData.localizedDescription)
+                    return
+                }
+                CacheService.saveImage(fileName: name, imageData: imageData, in: .cache)
+                completion(imageData)
+            })
+        }
     }
     
     func presentDetailsView(with object: ObjectModel, on view: VIEW) {

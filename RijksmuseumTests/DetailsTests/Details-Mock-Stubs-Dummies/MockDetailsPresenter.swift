@@ -9,7 +9,9 @@
 import UIKit
 
 class MockDetailsPresenter: DetailsPresenterInterface {
-
+    
+    var downloadService: DownloadService?
+    var headerImage: Data?
     var interactor: DetailsInteractorInterface?
     var wireframe: DetailsWireframeInterface?
     var view: DetailsViewInterface?
@@ -22,5 +24,9 @@ class MockDetailsPresenter: DetailsPresenterInterface {
         numberOfTimesArtObjectWasReceivedFromInteractor += 1
         artObject = object
     }
+    
+    func displayErrorLabel(with error: String) {
+    }
+    
     
 }

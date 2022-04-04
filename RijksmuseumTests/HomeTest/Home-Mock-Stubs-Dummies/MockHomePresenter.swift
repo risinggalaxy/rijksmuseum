@@ -9,11 +9,12 @@
 import UIKit
 
 class MockHomePresenter: HomePresenterInterface {
+
+    var downloadService: DownloadService?
     var numberOfArtObjects: Int?
     var view: HomeViewInterface?
     var interactor: HomeInteractorInterface?
     var wireframe: HomeWireframeInterface?
-    
     var didReceivePresentDetailViewRequest: Bool = false
     var numberReceivePresentDetailViewRequest: Int = 0
     
@@ -34,5 +35,9 @@ class MockHomePresenter: HomePresenterInterface {
     
     func somethingWentWrong( _ error: String) {
     }
+    
+    func imageForCell(with url: String?, and urlSession: URLSession, completion: @escaping (Data) -> Void) {
+    }
+    
     
 }
