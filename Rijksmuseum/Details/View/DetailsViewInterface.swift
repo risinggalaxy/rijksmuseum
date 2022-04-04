@@ -9,5 +9,7 @@ import UIKit
 
 protocol DetailsViewInterface {
     var presenter: DetailsPresenterInterface? { get set }
+    var headerImage: Data? { get set }
     func updateView(with object: ObjectModel)
+    func displayErrorLabel(with error: String )
 }

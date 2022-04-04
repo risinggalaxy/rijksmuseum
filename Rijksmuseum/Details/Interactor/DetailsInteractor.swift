@@ -8,11 +8,17 @@
 import UIKit
 
 class DetailsInteractor: DetailsInteractorInterface {
+    
     var presenter: DetailsPresenterInterface?
+    
     var object: ObjectModel? {
         didSet {
-            guard let artObject = object else { return }
+            guard let artObject = object else {
+                presenter?.displayErrorLabel(with: ErrorHandler.failedToParsJSON.localizedDescription)
+                return
+            }
             presenter?.updateDetailsView(with: artObject)
         }
     }
+    
 }

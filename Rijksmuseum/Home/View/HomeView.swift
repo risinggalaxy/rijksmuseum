@@ -54,7 +54,6 @@ class HomeView: UIViewController, HomeViewInterface {
         errorLabel.text = text
         errorLabel.isHidden = false
         errorLabel.centerAlignObject(view)
-       
     }
 
 }
@@ -96,6 +95,12 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             cell.model = object
             cell.tag = indexPath.row
             cell.isLoadingObject = false
+            presenter?.imageForCell(with: object.webImage.url, completion: { (imageData) in
+                DispatchQueue.main.async {
+                    cell.mainImage = imageData
+                    cell.isLoadingObject = false
+                }
+            })
             cell.moreInfoButtonClosure = { [weak self] in
                 if let strongSelf = self {
                     strongSelf.moreInfoButtonAction(with: object)

@@ -9,11 +9,19 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    private var imageView: UIImageView = {
+    var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
+    var mainImage: Data? {
+        didSet {
+            if let mainImageData = mainImage {
+                imageView.image = UIImage(data: mainImageData)
+            }
+        }
+    }
     var moreInfoButtonClosure: (() -> ())?
     
     private var moreInfoButton: UIButton = {
@@ -30,17 +38,9 @@ class CollectionViewCell: UICollectionViewCell {
     
     private var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir Next Heavy", size: 50)
+        label.font = UIFont(name: kMainTitleFont, size: 35)
         label.numberOfLines = .zero
-        label.textColor = UIColor(named: "backgroundColor")
-        return label
-    }()
-    
-    private var titleLabelShadow: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Avenir Next Heavy", size: 50)
-        label.numberOfLines = .zero
-        label.textColor = UIColor(named: "textShadow")
+        label.textColor = UIColor(named: "textColor")
         return label
     }()
     
@@ -63,7 +63,6 @@ class CollectionViewCell: UICollectionViewCell {
     private func addViews() {
         self.clipsToBounds = true
         self.addSubview(imageView)
-        self.addSubview(titleLabelShadow)
         self.addSubview(titleLabel)
         self.addSubview(activityIndicator)
         self.addSubview(moreInfoButton)
@@ -77,19 +76,13 @@ class CollectionViewCell: UICollectionViewCell {
                                          nil,
                                          (anchor: self.bottomAnchor, constant: -50 ), setSize: true)
         
-        titleLabelShadow.autoLayoutHelper((anchor: self.leadingAnchor, constant: 30),
-                                    (anchor: moreInfoButton.leadingAnchor, constant: .zero),
-                                    nil,
-                                    (anchor: self.bottomAnchor, constant: -45), setSize: false)
         
         titleLabel.autoLayoutHelper((anchor: self.leadingAnchor, constant: 25),
-                                    (anchor: moreInfoButton.leadingAnchor, constant: .zero),
+                                    (anchor: moreInfoButton.leadingAnchor, constant: -10),
                                     nil,
                                     (anchor: self.bottomAnchor, constant: -50), setSize: false)
         
         activityIndicator.centerAlignObject(imageView)
-        
-
     }
     
     @objc func moreInfoAction() {
@@ -99,11 +92,7 @@ class CollectionViewCell: UICollectionViewCell {
     var model: ObjectModel? {
         didSet {
             guard let model = model else { return }
-            let image = UIImage(named: model.webImage.url)
-            imageView.contentMode = .scaleAspectFill
-            imageView.image = image
             titleLabel.text = model.title.uppercased()
-            titleLabelShadow.text = titleLabel.text
         }
     }
     
@@ -114,7 +103,6 @@ class CollectionViewCell: UICollectionViewCell {
                 if newValue {
                     activityIndicator.startAnimating()
                     titleLabel.text = "Loading".capitalized
-                    titleLabelShadow.text = titleLabel.text
                 } else {
                     activityIndicator.stopAnimating()
                 }

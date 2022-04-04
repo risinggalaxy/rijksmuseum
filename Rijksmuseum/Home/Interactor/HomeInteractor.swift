@@ -26,7 +26,7 @@ class HomeInteractor: HomeInteractorInterface {
                     let decoder = JSONDecoder()
                     do {
                         let mainModel = try decoder.decode(MainModel.self, from: receivedData)
-                        strongSelf.artObjects = mainModel.artObjects
+                        strongSelf.artObjects = mainModel.artObjects.shuffled()
                     } catch {
                         strongSelf.presenter?.somethingWentWrong(ErrorHandler.failedToParsJSON.localizedDescription)
                     }

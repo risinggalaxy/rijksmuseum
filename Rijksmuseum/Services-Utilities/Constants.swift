@@ -18,6 +18,9 @@ struct APIURL {
 
 public var kProductPerPage: Int = 100
 public var kSearchLanguage: String = "en"
+public var kMainTitleFont: String = "Avenir Next Heavy"
+public var kDetailsTitleFont: String = "Avenir Next Heavy"
+public var kDetailsInfoFont: String = "Avenir Next Medium"
 
 var dummyObjects: [ObjectModel] = [ObjectModel(id: "Test", objectNumber: "test", title: "Test Object One",
                                          longTitle: "TEst", hasImage: true, principalOrFirstMaker: "Yasser Farahi", showImage: true,

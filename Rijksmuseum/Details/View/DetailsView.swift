@@ -8,11 +8,10 @@
 import UIKit
 
 class DetailsView: UIViewController, DetailsViewInterface {
-    
     var presenter: DetailsPresenterInterface?
     private static let screenSize = UIScreen.main.bounds
     
-    internal var headerImage: UIImageView = {
+    internal var headerImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: screenSize.width, height: 200)))
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -30,41 +29,93 @@ class DetailsView: UIViewController, DetailsViewInterface {
         return tv
     }()
     
+    private var activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(frame: .zero)
+        ai.style = .large
+        ai.isHidden = true
+        return ai
+    }()
+
+    func displayErrorLabel(with error: String ) {
+        let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 50)))
+        let detailsFont = UIFont(name: kDetailsInfoFont, size: 17)!
+        let detailsAtrr: [NSAttributedString.Key: Any] =
+        [.font: detailsFont, .foregroundColor: UIColor(named: "textColor")!]
+        let str: AttributedString = "\("\(error)", attributes: detailsAtrr)"
+        label.attributedText = str.attributedString
+        label.textAlignment = .center
+        headerImageView.addSubview(label)
+        label.centerAlignObject(headerImageView)
+    }
+    
+    var headerImage: Data? {
+        didSet {
+            guard let imageData = headerImage else {
+                displayErrorLabel(with: "Was not able to find an image")
+                return
+            }
+            let image = UIImage(data: imageData)
+            headerImageView.image = image
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+        }
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "backgroundColor")
-        setupImageView()
-        setupTextView()
+        setupView()
     }
     
-    private func setupImageView() {
-        view.addSubview(headerImage)
+    private func setupView() {
+        view.addSubview(headerImageView)
         view.addSubview(textView)
-        headerImage.autoLayoutHelper((anchor: view.leadingAnchor, constant: .zero),
+        headerImageView.autoLayoutHelper((anchor: view.leadingAnchor, constant: .zero),
                                      (anchor: view.trailingAnchor, constant: .zero),
                                      (anchor: view.topAnchor, constant: .zero),
                                      nil, setSize: true)
         textView.autoLayoutHelper((anchor: view.leadingAnchor, constant: .zero),
                                   (anchor: view.trailingAnchor, constant: .zero),
-                                  (anchor: headerImage.bottomAnchor, constant: .zero),
+                                  (anchor: headerImageView.bottomAnchor, constant: .zero),
                                   (anchor: view.bottomAnchor, constant: .zero), setSize: false)
-    }
-    
-    private func setupTextView() {
         
- 
+        if headerImage == nil {
+            headerImageView.addSubview(activityIndicator)
+            activityIndicator.centerAlignObject(headerImageView)
+            activityIndicator.startAnimating()
+        }
+        
     }
+
     
     func updateView(with object: ObjectModel) {
-        headerImage.image = UIImage(named: object.headerImage.url)
-        textView.text = """
-                Title: \(object.title)
-                Full Title: \(object.longTitle)
-                ID: \(object.id)
-                Art Number: \(object.objectNumber)
-                First Maker: \(object.principalOrFirstMaker)
-                """
+        
+        let subjectFont = UIFont(name: kDetailsTitleFont, size: 25)!
+        let subjectAtrr: [NSAttributedString.Key: Any] =
+        [.font: subjectFont, .foregroundColor: UIColor(named: "textColor")!]
+        
+        let detailsFont = UIFont(name: kDetailsInfoFont, size: 17)!
+        let detailsAtrr: [NSAttributedString.Key: Any] =
+        [.font: detailsFont, .foregroundColor: UIColor(named: "textColor")!]
+        
+        let str: AttributedString = """
+        \("Title", attributes: subjectAtrr)
+        \(object.title, attributes: detailsAtrr)
+        
+        \("Full Title", attributes: subjectAtrr)
+        \(object.longTitle, attributes: detailsAtrr)
+        
+        \("ID", attributes: subjectAtrr)
+        \(object.id, attributes: detailsAtrr)
+        
+        \("Art Number", attributes: subjectAtrr)
+        \(object.objectNumber, attributes: detailsAtrr)
+        
+        \("First Maker", attributes: subjectAtrr)
+        \(object.principalOrFirstMaker, attributes: detailsAtrr)
+        """
+        textView.attributedText = str.attributedString
     }
     
 }
-

@@ -59,6 +59,7 @@
 		73A125FA27F1F99500B22EEB /* DetailsPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125F927F1F99500B22EEB /* DetailsPresenterInterface.swift */; };
 		73A125FC27F1F9A300B22EEB /* DetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125FB27F1F9A300B22EEB /* DetailsWireframe.swift */; };
 		73A125FE27F1F9B000B22EEB /* DetailsWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125FD27F1F9B000B22EEB /* DetailsWireframeInterface.swift */; };
+		73E3010F27FAE264005F32CA /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E3010E27FAE264005F32CA /* AttributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		73A125F927F1F99500B22EEB /* DetailsPresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenterInterface.swift; sourceTree = "<group>"; };
 		73A125FB27F1F9A300B22EEB /* DetailsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWireframe.swift; sourceTree = "<group>"; };
 		73A125FD27F1F9B000B22EEB /* DetailsWireframeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWireframeInterface.swift; sourceTree = "<group>"; };
+		73E3010E27FAE264005F32CA /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +430,7 @@
 				732CFCBC27F30681004D889B /* Constants.swift */,
 				731CEC1E27F5BD9A00846B00 /* ErrorHandler.swift */,
 				731CEC4F27F5F22400846B00 /* AutoLayoutHelper.swift */,
+				73E3010E27FAE264005F32CA /* AttributedString.swift */,
 			);
 			path = "Services-Utilities";
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				732CFCBB27F30635004D889B /* ObjectModels.swift in Sources */,
 				733BB90A27F1F44D0004E54D /* AppDelegate.swift in Sources */,
 				73A125EC27F1F94800B22EEB /* HomeWireframe.swift in Sources */,
+				73E3010F27FAE264005F32CA /* AttributedString.swift in Sources */,
 				73A125F627F1F97E00B22EEB /* DetailsInteractorInterface.swift in Sources */,
 				73A125FE27F1F9B000B22EEB /* DetailsWireframeInterface.swift in Sources */,
 				73A125F027F1F95E00B22EEB /* DetailsView.swift in Sources */,
@@ -837,6 +841,7 @@
 				INFOPLIST_FILE = Rijksmuseum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -865,6 +870,7 @@
 				INFOPLIST_FILE = Rijksmuseum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
