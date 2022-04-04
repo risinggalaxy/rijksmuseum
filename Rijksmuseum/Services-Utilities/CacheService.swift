@@ -43,7 +43,6 @@ class CacheService {
         let directoryUrl = getURL(for: directory).appendingPathComponent(fileName, isDirectory: false)
         let filePath = directoryUrl.path
         if !imageExists(fileName: fileName, in: directory).available {
-            print("Saving \(filePath) WITH \(fileName)")
             FileManager.default.createFile(atPath: filePath, contents: imageData, attributes: [:])
         }
     }
