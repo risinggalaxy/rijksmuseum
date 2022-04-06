@@ -42,6 +42,7 @@ class DetailsPresenter: DetailsPresenterInterface {
                 guard let strongSelf = self else { return }
                 if let error = error {
                     strongSelf.view?.displayErrorLabel(with: error.localizedDescription)
+                    return
                 }
                 guard let imageData = data else {
                     strongSelf.view?.displayErrorLabel(with: ErrorHandler.failedDueToCorruptData.localizedDescription)

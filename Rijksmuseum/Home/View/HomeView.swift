@@ -22,6 +22,7 @@ class HomeView: UIViewController, HomeViewInterface {
         label.isHidden = true
         return label
     }()
+    
     var collectionView: UICollectionView! = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: screenSize,
@@ -30,6 +31,11 @@ class HomeView: UIViewController, HomeViewInterface {
         collectionView.showsHorizontalScrollIndicator = false
         collectionViewLayout.scrollDirection = .horizontal
         return collectionView
+    }()
+    
+    var activityIndicator: UIActivityIndicatorView = {
+        let av = UIActivityIndicatorView(style: .large)
+        return av
     }()
     
     override func viewDidLoad() {
@@ -41,7 +47,7 @@ class HomeView: UIViewController, HomeViewInterface {
         super.viewWillLayoutSubviews()
         self.view.addSubview(collectionView)
         setupCollectionView()
-
+        
     }
     
     func moreInfoButtonAction(with object: ObjectModel) {
@@ -49,23 +55,26 @@ class HomeView: UIViewController, HomeViewInterface {
     }
     
     func updateUISomethingWentWrong(with text: String) {
-        collectionView.isHidden = true
-        view.addSubview(errorLabel)
-        errorLabel.text = text
-        errorLabel.isHidden = false
-        errorLabel.centerAlignObject(view)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.collectionView.isHidden = true
+            strongSelf.view.addSubview(strongSelf.errorLabel)
+            strongSelf.errorLabel.text = text
+            strongSelf.errorLabel.isHidden = false
+            strongSelf.errorLabel.centerAlignObject(strongSelf.view)
+        }
     }
-
+    
 }
 
 extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     private func setupCollectionView() {
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellSize = view.frame.width + layout.minimumLineSpacing
@@ -76,27 +85,38 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                          y: scrollView.contentInset.top)
         targetContentOffset.pointee = offset
     }
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if presenter?.numberOfArtObjects != nil {
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
             return (presenter?.numberOfArtObjects)!
         } else {
+            collectionView.addSubview(activityIndicator)
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            activityIndicator.centerAlignObject(collectionView)
             return .zero
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CollectionViewCell
+        if cell.tag != indexPath.row {
+            cell.imageView.image = nil
+        }
         cell.tag = indexPath.row
+        cell.isLoadingObject = true
         if let object = presenter?.objectFor(indexPath.row) {
             cell.model = object
             presenter?.imageForCell(with: object.webImage.url, name: object.id, and: .shared, completion: { (imageData) in
                 DispatchQueue.main.async {
                     cell.mainImage = imageData
+                    cell.isLoadingObject = false
                 }
             })
             cell.moreInfoButtonClosure = { [weak self] in

@@ -17,7 +17,8 @@ class HomeInteractor: HomeInteractorInterface {
                 downloadService.downloader {[weak self](data, error) in
                     guard let strongSelf = self else { return }
                     if let error = error {
-                        strongSelf.presenter?.somethingWentWrong("Some thing went wrong with the following error : \(error)")
+                        strongSelf.presenter?.somethingWentWrong(error.localizedDescription)
+                        return
                     }
                     guard let receivedData = data else {
                         strongSelf.presenter?.somethingWentWrong(ErrorHandler.failedDueToCorruptData.localizedDescription)

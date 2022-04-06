@@ -16,7 +16,7 @@ struct APIURL {
     }
 }
 
-public var kProductPerPage: Int = 5
+public var kProductPerPage: Int = 200
 public var kSearchLanguage: String = "en"
 public var kMainTitleFont: String = "Avenir Next Heavy"
 public var kDetailsTitleFont: String = "Avenir Next Heavy"

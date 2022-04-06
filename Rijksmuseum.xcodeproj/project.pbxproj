@@ -43,6 +43,7 @@
 		733BB91327F1F44F0004E54D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733BB91227F1F44F0004E54D /* Assets.xcassets */; };
 		733BB91627F1F44F0004E54D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733BB91427F1F44F0004E54D /* LaunchScreen.storyboard */; };
 		73511CD327F59C380009BA7C /* TestAPIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73511CD227F59C380009BA7C /* TestAPIURL.swift */; };
+		736AD58927FDA70000CF7DAC /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736AD58827FDA70000CF7DAC /* NetworkMonitorService.swift */; };
 		73A125E027F1F90A00B22EEB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125DF27F1F90A00B22EEB /* HomeView.swift */; };
 		73A125E227F1F91300B22EEB /* HomeViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E127F1F91300B22EEB /* HomeViewInterface.swift */; };
 		73A125E427F1F91E00B22EEB /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A125E327F1F91E00B22EEB /* HomeInteractor.swift */; };
@@ -121,6 +122,7 @@
 		733BB91727F1F44F0004E54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		733BB91C27F1F44F0004E54D /* RijksmuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksmuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73511CD227F59C380009BA7C /* TestAPIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIURL.swift; sourceTree = "<group>"; };
+		736AD58827FDA70000CF7DAC /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
 		73A125DF27F1F90A00B22EEB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		73A125E127F1F91300B22EEB /* HomeViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewInterface.swift; sourceTree = "<group>"; };
 		73A125E327F1F91E00B22EEB /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			children = (
 				731CEC2027F5BF9400846B00 /* DownloadService.swift */,
 				731CEC2227F5BFBB00846B00 /* DownloadServiceInterface.swift */,
+				736AD58827FDA70000CF7DAC /* NetworkMonitorService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				733BB90C27F1F44D0004E54D /* SceneDelegate.swift in Sources */,
 				73A125E427F1F91E00B22EEB /* HomeInteractor.swift in Sources */,
 				73A125E227F1F91300B22EEB /* HomeViewInterface.swift in Sources */,
+				736AD58927FDA70000CF7DAC /* NetworkMonitorService.swift in Sources */,
 				731CEC2327F5BFBB00846B00 /* DownloadServiceInterface.swift in Sources */,
 				73A125EE27F1F95000B22EEB /* HomeWireframeInterface.swift in Sources */,
 				733B213127F751F9007F1917 /* NavigationFactory.swift in Sources */,

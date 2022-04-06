@@ -11,20 +11,30 @@ class DownloadService: DownloadServiceInterface {
     
     var urlSession: URLSession
     var urlString: String
+    var networkManager: NetworkManager
     
     required init(urlSession: URLSession = .shared, urlString: String) {
         self.urlSession = urlSession
         self.urlString = urlString
+        networkManager = NetworkManager()
     }
     
     func downloader(completionHandler: @escaping (Data?, ErrorHandler?) -> Void) {
+        
         guard let url = URL(string: self.urlString) else {
             completionHandler(nil, ErrorHandler.failedToLoadURL)
             return
         }
-        let task = urlSession.dataTask(with: url) { data, _ , error in
-            if let _ = error {
-                completionHandler(nil, ErrorHandler.failedRequest(description: "The operation couldn’t be completed \n due to an error while download request"))
+        
+        let task = urlSession.dataTask(with: url) { [self] data, _ , error in
+            if let error = error {
+                if networkManager.hasConnection {
+                completionHandler(nil, ErrorHandler.failedRequest(description: error.localizedDescription))
+                return
+                } else {
+                    completionHandler(nil, ErrorHandler.noInternetConnection)
+                    return
+                }
             }
             guard let receivedData = data else {
                 completionHandler(nil, ErrorHandler.failedDueToCorruptData)
@@ -33,6 +43,7 @@ class DownloadService: DownloadServiceInterface {
             completionHandler(receivedData, nil)
         }
         task.resume()
+        
     }
     
 }

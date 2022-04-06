@@ -15,6 +15,7 @@ class DetailsInteractor: DetailsInteractorInterface {
         didSet {
             guard let artObject = object else {
                 presenter?.displayErrorLabel(with: ErrorHandler.failedToParsJSON.localizedDescription)
+                print("Hello")
                 return
             }
             presenter?.updateDetailsView(with: artObject)

@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailsView: UIViewController, DetailsViewInterface {
+    
     var presenter: DetailsPresenterInterface?
     private static let screenSize = UIScreen.main.bounds
     
@@ -35,23 +36,31 @@ class DetailsView: UIViewController, DetailsViewInterface {
         ai.isHidden = true
         return ai
     }()
-
+    
     func displayErrorLabel(with error: String ) {
-        let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 50)))
-        let detailsFont = UIFont(name: kDetailsInfoFont, size: 17)!
-        let detailsAtrr: [NSAttributedString.Key: Any] =
-        [.font: detailsFont, .foregroundColor: UIColor(named: "textColor")!]
-        let str: AttributedString = "\("\(error)", attributes: detailsAtrr)"
-        label.attributedText = str.attributedString
-        label.textAlignment = .center
-        headerImageView.addSubview(label)
-        label.centerAlignObject(headerImageView)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            let label = UILabel(frame: CGRect(origin: .zero, size: .zero))
+            let detailsFont = UIFont(name: kDetailsInfoFont, size: 17)!
+            let detailsAtrr: [NSAttributedString.Key: Any] =
+            [.font: detailsFont, .foregroundColor: UIColor(named: "textColor")!]
+            let str: AttributedString = "\("\(error)", attributes: detailsAtrr)"
+            label.attributedText = str.attributedString
+            label.textAlignment = .center
+            label.numberOfLines = .zero
+            strongSelf.headerImageView.addSubview(label)
+            label.autoLayoutHelper((anchor: strongSelf.headerImageView.leadingAnchor, constant: 15),
+                                   (anchor: strongSelf.headerImageView.trailingAnchor, constant: 15),
+                                   (anchor: strongSelf.activityIndicator.bottomAnchor, constant: 10),
+                                   (anchor: strongSelf.headerImageView.bottomAnchor, constant: -10),
+                                   setSize: false)
+        }
     }
     
     var headerImage: Data? {
         didSet {
             guard let imageData = headerImage else {
-                displayErrorLabel(with: "Was not able to find an image")
+                displayErrorLabel(with: ErrorHandler.noValidImage.localizedDescription)
                 return
             }
             let image = UIImage(data: imageData)
@@ -61,7 +70,7 @@ class DetailsView: UIViewController, DetailsViewInterface {
         }
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "backgroundColor")
@@ -72,9 +81,9 @@ class DetailsView: UIViewController, DetailsViewInterface {
         view.addSubview(headerImageView)
         view.addSubview(textView)
         headerImageView.autoLayoutHelper((anchor: view.leadingAnchor, constant: .zero),
-                                     (anchor: view.trailingAnchor, constant: .zero),
-                                     (anchor: view.topAnchor, constant: .zero),
-                                     nil, setSize: true)
+                                         (anchor: view.trailingAnchor, constant: .zero),
+                                         (anchor: view.topAnchor, constant: .zero),
+                                         nil, setSize: true)
         textView.autoLayoutHelper((anchor: view.leadingAnchor, constant: .zero),
                                   (anchor: view.trailingAnchor, constant: .zero),
                                   (anchor: headerImageView.bottomAnchor, constant: .zero),
@@ -87,7 +96,7 @@ class DetailsView: UIViewController, DetailsViewInterface {
         }
         
     }
-
+    
     
     func updateView(with object: ObjectModel) {
         
