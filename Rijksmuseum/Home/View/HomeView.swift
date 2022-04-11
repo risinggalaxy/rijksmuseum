@@ -67,6 +67,7 @@ class HomeView: UIViewController, HomeViewInterface {
     
 }
 
+
 extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private func setupCollectionView() {

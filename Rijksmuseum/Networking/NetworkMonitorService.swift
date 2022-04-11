@@ -19,10 +19,12 @@ class NetworkManager {
         networkMonitor.pathUpdateHandler = { path in
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
-                if path.status == .satisfied {
-                    strongSelf.hasConnection = true
-                } else {
-                    strongSelf.hasConnection = false
+                switch path.status {
+                case .satisfied: strongSelf.hasConnection = true
+                    NotificationCenter.default.post(name: NSNotification.Name("Online"), object: nil)
+                case .unsatisfied: strongSelf.hasConnection = false
+                    NotificationCenter.default.post(name: NSNotification.Name("Offline"), object: nil)
+                default: break
                 }
             }
         }

@@ -9,7 +9,7 @@ import Foundation
 
 struct APIURL {
     static let urlComponent = URLComponents(string: "https://www.rijksmuseum.nl/api/\(kSearchLanguage)/collection?key=\(apiKey)&ps=\(kProductPerPage)")
-    static let apiKey = "0fiuZFh4"
+    private static let apiKey = "GET-YOUR-OWN-API-KEY"
     public static func getURL() -> String {
         guard let str = urlComponent?.string else { return ErrorHandler.failedRequest(description: "Bad URL").localizedDescription }
         return str

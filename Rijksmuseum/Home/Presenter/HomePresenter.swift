@@ -13,6 +13,7 @@ class HomePresenter: HomePresenterInterface {
     var interactor: HomeInteractorInterface?
     var wireframe: HomeWireframeInterface?
     var downloadService: DownloadService?
+    
     var numberOfArtObjects: Int?  {
         didSet {
             DispatchQueue.main.async { [weak self] in
